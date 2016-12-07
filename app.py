@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect
+from data_wrangler import Wrangler
 
 app = Flask(__name__)
 
