@@ -37,7 +37,8 @@ def stock_ticker():
   tp = TickerPlot(code,data,features)
   html = file_html(tp.figure, CDN, 'Stock Ticker')
   return render_template('stock_ticker.html',
-                         plot=html)
+                         plot=html,
+                         code=code)
   
 if __name__ == '__main__':
   import os
