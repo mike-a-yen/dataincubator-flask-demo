@@ -25,13 +25,19 @@ def index():
     return render_template('index.html')
     
 
-@app.route('/stock_ticker/<code>')
-def stock_ticker(code):
-  data = w.get(code)
-  tp = TickerPlot(code,data['date'],data['price'])
+@app.route('/stock_ticker',methods=['POST'])
+def stock_ticker():
+  
+  code = request.form.get('code')
+  features = request.form.getlist('features')
+  print(request.form)
+  print(code,features)
+  data = w.get(code)[['date']+features]
+  print(data)
+  tp = TickerPlot(code,data,features)
   html = file_html(tp.figure, CDN, 'Stock Ticker')
   return render_template('stock_ticker.html',
                          plot=html)
   
 if __name__ == '__main__':
-  app.run(port=33507)
+  app.run(port=5000)

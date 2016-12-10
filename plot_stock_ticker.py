@@ -5,15 +5,24 @@ class TickerPlot(object):
     box_zoom,undo,reset,box_select,poly_select,
     lasso_select,"""
     
-    def __init__(self,code,dates,prices):
+    def __init__(self,code,data,features,label=None):
         self.code = code
+        self.dates = data['date']
+        
         self.figure = figure(title='{code} Prices'.format(**{'code':code}),
                              x_axis_label='Date',
                              x_axis_type='datetime',
                              y_axis_label='Price',
                              tools=self.TOOLS)
-
-        self.figure.line(dates,prices,line_width=2)
+        colors = {'open':'blue',
+                  'adj_open':'green',
+                  'close':'red',
+                  'adj_close':'orange'}
+        for feature in features:
+            self.figure.line(self.dates,data[feature],
+                             line_width=2,
+                             line_color=colors[feature],
+                             legend=feature)
 
         
             

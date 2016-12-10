@@ -1,40 +1,40 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Stock Ticker--Mike Yen</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	</head>
-	<body>
-		<div>
-  		  <h1>User Input</h1>
-		  <h4>Please enter a stock ticker eg. GOOG, and check desired features.
-		  <h4>Mike Yen</h4>
-		</div>
-
-		<div>
-		  <form id="input" method="post" action="/index">
-		    <div>
-		      Ticker Symbol:
-		      <input type="text" name="code">
-		    </div>
-		    <div>
-		      <input type="checkbox" name="features" value="Close">
-		      Closing price
-		      <br>
-		      <input type="checkbox" name="features" value="Adj. Close">
-		      Adjusted closing price
-		      <br>
-		      <input type="checkbox" name="features" value="Open">
-		      Opening price
-		      <br>
-		      <input type="checkbox" name="features" value="Adj. Open">
-		      Adjusted opening price
-		      <input type="submit" value="Submit">
-		    </div>
-		  </form>
-		</div>
-	</body>
+  <head>
+    <meta charset="utf-8">
+    <title>Stock Ticker--Mike Yen</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <h1>User Input</h1>
+      <h4>Please enter a stock ticker eg. GOOG, and check desired features.
+	<h4>Mike Yen</h4>
+    </div>
+    
+    <div>
+      <form id="input" method="POST" action="/stock_ticker">
+	<div>
+	  Ticker Symbol:
+	  <input type="text" name="code">
+	</div>
+	<div>
+	  <input type="checkbox" name="features" value="close">
+	  Closing price
+	  <br>
+	  <input type="checkbox" name="features" value="adj_close">
+	  Adjusted closing price
+	  <br>
+	  <input type="checkbox" name="features" value="open">
+	  Opening price
+	  <br>
+	  <input type="checkbox" name="features" value="adj_open">
+	  Adjusted opening price
+	  <input type="submit" value="Submit">
+	</div>
+      </form>
+    </div>
+  </body>
 </html>

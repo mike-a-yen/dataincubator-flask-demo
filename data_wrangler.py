@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 from keys import quandl_key
 
 
-quandl_base = 'https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?ticker={code}&date.gt={date}&qopts.columns=date,open&api_key={api_key}'
+quandl_base = 'https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?ticker={code}&date.gt={date}&qopts.columns=date,open,close,adj_open,adj_close&api_key={api_key}'
 
 class Wrangler(object):
     def __init__(self,base=quandl_base,key=quandl_key):
@@ -27,6 +27,6 @@ class Wrangler(object):
     
     def data_clean(self,data):
         df =  pd.DataFrame(data['datatable']['data'],
-                           columns=['date','price'])
+                           columns=['date','open','close','adj_open','adj_close'])
         df['date'] = df['date'].apply(lambda x: datetime.strptime(x,'%Y-%m-%d'))
         return df
