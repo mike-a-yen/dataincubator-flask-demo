@@ -13,7 +13,7 @@ class Wrangler(object):
         self.base = base
         self.key = key
 
-    def get(self,code,timediff=timedelta(1*365/12)):
+    def get(self,code,timediff=timedelta(365)):
         date = self.date(timediff).strftime('%Y%m%d')
         meta = {'code':code,'date':date,'api_key':self.key}
         query_url = self.base.format(**meta)
